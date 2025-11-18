@@ -4,6 +4,11 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# ========== 新增：配置Matplotlib支持中文 ==========
+plt.rcParams["font.family"] = ["SimHei", "PingFang SC", "Microsoft YaHei"]  # 选系统已安装的中文字体
+plt.rcParams["axes.unicode_minus"] = False  # 解决负号显示为方块的问题
+# ================================================
+
 # Load the trained model
 model = joblib.load('CatBoost.pkl')  # 加载训练好的CatBoost模型
 

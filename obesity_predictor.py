@@ -182,25 +182,25 @@ if st.button("开始预测"):  # 如果点击了预测按钮
 
         # Visualize the prediction probabilities
         sample_prob = {
-            '非肥胖': predicted_proba[0],  # 类别0的概率
-            '肥胖': predicted_proba[1]  # 类别1的概率
+            'Non-obesity': predicted_proba[0],  # 类别0的概率
+            'Obesity': predicted_proba[1]  # 类别1的概率
         }
 
         # Set figure size
         plt.figure(figsize=(10, 3))  # 设置图形大小
 
         # Create bar chart
-        bars = plt.barh(['非肥胖', '肥胖'], 
-                        [sample_prob['非肥胖'], sample_prob['肥胖']], 
+        bars = plt.barh(['Non-obesity', 'Obesity'], 
+                        [sample_prob['Non-obesity'], sample_prob['Obesity']], 
                         color=['#512b58', '#fe346e'])  # 绘制水平条形图
 
         # Add title and labels, set font bold and increase font size
-        plt.title("学生肥胖风险预测概率", fontsize=16, fontweight='bold')  # 添加图表标题，并设置字体大小和加粗
-        plt.xlabel("概率", fontsize=12, fontweight='bold')  # 添加X轴标签，并设置字体大小和加粗
-        plt.ylabel("类别", fontsize=12, fontweight='bold')  # 添加Y轴标签，并设置字体大小和加粗
+        plt.title("Prediction Probability for Students", fontsize=16, fontweight='bold')  # 添加图表标题，并设置字体大小和加粗
+        plt.xlabel("Probability", fontsize=12, fontweight='bold')  # 添加X轴标签，并设置字体大小和加粗
+        plt.ylabel("Classes", fontsize=12, fontweight='bold')  # 添加Y轴标签，并设置字体大小和加粗
 
         # Add probability text labels, adjust position to avoid overlap, set font bold
-        for i, v in enumerate([sample_prob['非肥胖'], sample_prob['肥胖']]):  # 为每个条形图添加概率文本标签
+        for i, v in enumerate([sample_prob['Non-obesity'], sample_prob['Obesity']]):  # 为每个条形图添加概率文本标签
             plt.text(v + 0.01, i, f"{v:.2f}", va='center', fontsize=12, color='black', fontweight='bold')  # 设置标签位置、字体加粗
 
         # Hide other axes (top, right, bottom)

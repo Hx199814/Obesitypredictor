@@ -116,7 +116,7 @@ D16_options = {
 }
 
 # Streamlit UI
-st.title("学生肥胖风险预测")  # 修改为中文标题
+st.title("学生肥胖风险预测器")  # 修改为中文标题
 
 # Sidebar for input options
 st.sidebar.header("请输入学生信息")  # 侧边栏输入样本数据

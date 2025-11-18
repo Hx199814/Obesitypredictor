@@ -3,4 +3,4 @@ joblib==1.4.2
 numpy==1.26.4
 pandas==2.2.3
 matplotlib==3.9.2
-https://github.com/catboost/catboost/releases/download/v1.2.7/catboost-1.2.7-cp311-cp311-manylinux2014_x86_64.whl
+catboost==1.2.7

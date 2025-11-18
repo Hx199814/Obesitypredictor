@@ -3,10 +3,16 @@ import joblib
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import shap
+import seaborn as sns
 
 # ========== 新增：配置Matplotlib支持中文 ==========
-plt.rcParams["font.family"] = ["SimHei", "PingFang SC", "Microsoft YaHei"]  # 选系统已安装的中文字体
-plt.rcParams["axes.unicode_minus"] = False  # 解决负号显示为方块的问题
+# 配置中文字体显示
+plt.rcParams['font.sans-serif'] = ['SimHei']  # 指定黑体
+plt.rcParams['axes.unicode_minus'] = False  # 确保负号正确显示
+
+# 设置Seaborn样式，去除背景栅格
+sns.set_style("white", {"font.sans-serif": ['SimHei', 'Droid Sans Fallback']})
 # ================================================
 
 # Load the trained model
@@ -207,21 +213,6 @@ if st.button("开始预测"):  # 如果点击了预测按钮
 
         # Show the plot
         st.pyplot(plt)  # 显示图表
-        
-        # 显示特征重要性（如果模型支持）
-        try:
-            if hasattr(model, 'feature_importances_'):
-                st.subheader("特征重要性")
-                feature_names = ['性别', '学业表现', '家庭经济', '水果频次', '水果种类', '运动天数', 
-                               '体育课数', '看电视时间', '用电脑时间', '情绪1', '情绪5', '情绪16', '睡眠时长']
-                importance_df = pd.DataFrame({
-                    '特征': feature_names,
-                    '重要性': model.feature_importances_
-                }).sort_values('重要性', ascending=False)
-                
-                st.dataframe(importance_df)
-        except Exception as e:
-            st.write("无法显示特征重要性")
 
     except Exception as e:
         st.error(f"预测过程中出现错误: {str(e)}")

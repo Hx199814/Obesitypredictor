@@ -3,7 +3,6 @@ import joblib
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import shap
 import seaborn as sns
 
 # ========== 新增：配置Matplotlib支持中文 ==========
